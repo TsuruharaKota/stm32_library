@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<math.h>
-
+#include"main.h"
 #ifndef BNO055_H_
 #define BNO055_H_
 
@@ -9,10 +9,10 @@ extern "C"{
 #endif
 
 #define BNOAddress (0x28 << 1)
-	//Register definitions
-	/* Page id register definition */
+//Register definitions
+/* Page id register definition */
 #define BNO055_PAGE_ID_ADDR          0x07
-	/* PAGE0 REGISTER DEFINITION START*/
+/* PAGE0 REGISTER DEFINITION START*/
 #define BNO055_CHIP_ID_ADDR          0x00
 #define BNO055_ACCEL_REV_ID_ADDR     0x01
 #define BNO055_MAG_REV_ID_ADDR       0x02
@@ -20,35 +20,35 @@ extern "C"{
 #define BNO055_SW_REV_ID_LSB_ADDR    0x04
 #define BNO055_SW_REV_ID_MSB_ADDR    0x05
 #define BNO055_BL_REV_ID_ADDR        0x06
-	/* Accel data register */
+/* Accel data register */
 #define BNO055_ACCEL_DATA_X_LSB_ADDR 0x08
 #define BNO055_ACCEL_DATA_X_MSB_ADDR 0x09
 #define BNO055_ACCEL_DATA_Y_LSB_ADDR 0x0A
 #define BNO055_ACCEL_DATA_Y_MSB_ADDR 0x0B
 #define BNO055_ACCEL_DATA_Z_LSB_ADDR 0x0C
 #define BNO055_ACCEL_DATA_Z_MSB_ADDR 0x0D
-	/* Mag data register */
+/* Mag data register */
 #define BNO055_MAG_DATA_X_LSB_ADDR   0x0E
 #define BNO055_MAG_DATA_X_MSB_ADDR   0x0F
 #define BNO055_MAG_DATA_Y_LSB_ADDR   0x10
 #define BNO055_MAG_DATA_Y_MSB_ADDR   0x11
 #define BNO055_MAG_DATA_Z_LSB_ADDR   0x12
 #define BNO055_MAG_DATA_Z_MSB_ADDR   0x13
-	/* Gyro data registers */
+/* Gyro data registers */
 #define BNO055_GYRO_DATA_X_LSB_ADDR  0x14
 #define BNO055_GYRO_DATA_X_MSB_ADDR  0x15
 #define BNO055_GYRO_DATA_Y_LSB_ADDR  0x16
 #define BNO055_GYRO_DATA_Y_MSB_ADDR  0x17
 #define BNO055_GYRO_DATA_Z_LSB_ADDR  0x18
 #define BNO055_GYRO_DATA_Z_MSB_ADDR  0x19
-	/* Euler data registers */
+/* Euler data registers */
 #define BNO055_EULER_H_LSB_ADDR      0x1A
 #define BNO055_EULER_H_MSB_ADDR      0x1B
 #define BNO055_EULER_R_LSB_ADDR      0x1C
 #define BNO055_EULER_R_MSB_ADDR      0x1D
 #define BNO055_EULER_P_LSB_ADDR      0x1E
 #define BNO055_EULER_P_MSB_ADDR      0x1F
-	/* Quaternion data registers */
+/* Quaternion data registers */
 #define BNO055_QUATERNION_DATA_W_LSB_ADDR  0x20
 #define BNO055_QUATERNION_DATA_W_MSB_ADDR  0x21
 #define BNO055_QUATERNION_DATA_X_LSB_ADDR  0x22
@@ -57,71 +57,71 @@ extern "C"{
 #define BNO055_QUATERNION_DATA_Y_MSB_ADDR  0x25
 #define BNO055_QUATERNION_DATA_Z_LSB_ADDR  0x26
 #define BNO055_QUATERNION_DATA_Z_MSB_ADDR  0x27
-	/* Linear acceleration data registers */
+/* Linear acceleration data registers */
 #define BNO055_LINEAR_ACCEL_DATA_X_LSB_ADDR 0x28
 #define BNO055_LINEAR_ACCEL_DATA_X_MSB_ADDR 0x29
 #define BNO055_LINEAR_ACCEL_DATA_Y_LSB_ADDR 0x2A
 #define BNO055_LINEAR_ACCEL_DATA_Y_MSB_ADDR 0x2B
 #define BNO055_LINEAR_ACCEL_DATA_Z_LSB_ADDR 0x2C
 #define BNO055_LINEAR_ACCEL_DATA_Z_MSB_ADDR 0x2D
-	/* Gravity data registers */
+/* Gravity data registers */
 #define BNO055_GRAVITY_DATA_X_LSB_ADDR      0x2E
 #define BNO055_GRAVITY_DATA_X_MSB_ADDR      0x2F
 #define BNO055_GRAVITY_DATA_Y_LSB_ADDR      0x30
 #define BNO055_GRAVITY_DATA_Y_MSB_ADDR      0x31
 #define BNO055_GRAVITY_DATA_Z_LSB_ADDR      0x32
 #define BNO055_GRAVITY_DATA_Z_MSB_ADDR      0x33
-	/* Temperature data register */
+/* Temperature data register */
 #define BNO055_TEMP_ADDR                    0x34
-	/* Status registers */
+/* Status registers */
 #define BNO055_CALIB_STAT_ADDR              0x35
 #define BNO055_SELFTEST_RESULT_ADDR         0x36
 #define BNO055_INTR_STAT_ADDR               0x37
 #define BNO055_SYS_CLK_STAT_ADDR            0x38
 #define BNO055_SYS_STAT_ADDR                0x39
 #define BNO055_SYS_ERR_ADDR                 0x3A
-	/* Unit selection register */
+/* Unit selection register */
 #define BNO055_UNIT_SEL_ADDR                0x3B
 #define BNO055_DATA_SELECT_ADDR             0x3C
-	/* Mode registers */
+/* Mode registers */
 #define BNO055_OPR_MODE_ADDR                0x3D
 #define BNO055_PWR_MODE_ADDR                0x3E
 #define BNO055_SYS_TRIGGER_ADDR             0x3F
 #define BNO055_TEMP_SOURCE_ADDR             0x40
-	/* Axis remap registers */
+/* Axis remap registers */
 #define BNO055_AXIS_MAP_CONFIG_ADDR         0x41
 #define BNO055_AXIS_MAP_SIGN_ADDR           0x42
-	/* Accelerometer Offset registers */
+/* Accelerometer Offset registers */
 #define ACCEL_OFFSET_X_LSB_ADDR             0x55
 #define ACCEL_OFFSET_X_MSB_ADDR             0x56
 #define ACCEL_OFFSET_Y_LSB_ADDR             0x57
 #define ACCEL_OFFSET_Y_MSB_ADDR             0x58
 #define ACCEL_OFFSET_Z_LSB_ADDR             0x59
 #define ACCEL_OFFSET_Z_MSB_ADDR             0x5A
-	/* Magnetometer Offset registers */
+/* Magnetometer Offset registers */
 #define MAG_OFFSET_X_LSB_ADDR               0x5B
 #define MAG_OFFSET_X_MSB_ADDR               0x5C
 #define MAG_OFFSET_Y_LSB_ADDR               0x5D
 #define MAG_OFFSET_Y_MSB_ADDR               0x5E
 #define MAG_OFFSET_Z_LSB_ADDR               0x5F
 #define MAG_OFFSET_Z_MSB_ADDR               0x60
-	/* Gyroscope Offset registers*/
+/* Gyroscope Offset registers*/
 #define GYRO_OFFSET_X_LSB_ADDR              0x61
 #define GYRO_OFFSET_X_MSB_ADDR              0x62
 #define GYRO_OFFSET_Y_LSB_ADDR              0x63
 #define GYRO_OFFSET_Y_MSB_ADDR              0x64
 #define GYRO_OFFSET_Z_LSB_ADDR              0x65
 #define GYRO_OFFSET_Z_MSB_ADDR              0x66
-	/* Radius registers */
+/* Radius registers */
 #define ACCEL_RADIUS_LSB_ADDR               0x67
 #define ACCEL_RADIUS_MSB_ADDR               0x68
 #define MAG_RADIUS_LSB_ADDR                 0x69
 #define MAG_RADIUS_MSB_ADDR                 0x6A
 
-	/* Page 1 registers */
+/* Page 1 registers */
 #define BNO055_UNIQUE_ID_ADDR               0x50
 
-	//Definitions for unit selection
+//Definitions for unit selection
 #define MPERSPERS   0x00
 #define MILLIG      0x01
 #define DEG_PER_SEC 0x00
@@ -133,12 +133,12 @@ extern "C"{
 #define WINDOWS     0x00
 #define ANDROID     0x80
 
-	//Definitions for power mode
+//Definitions for power mode
 #define POWER_MODE_NORMAL   0x00
 #define POWER_MODE_LOWPOWER 0x01
 #define POWER_MODE_SUSPEND  0x02
 
-	//Definitions for operating mode
+//Definitions for operating mode
 #define OPERATION_MODE_CONFIG        0x00
 #define OPERATION_MODE_ACCONLY       0x01
 #define OPERATION_MODE_MAGONLY       0x02
@@ -152,53 +152,54 @@ extern "C"{
 #define OPERATION_MODE_M4G           0x0A
 #define OPERATION_MODE_NDOF_FMC_OFF  0x0B
 #define OPERATION_MODE_NDOF          0x0C
+
 #define _BNO_GET_ANGLE(_BNO_STRUCT_)((_BNO_STRUCT_) -> deg_z)
 
-	typedef struct{
-		int16_t rawx, rawy, rawz;
-		float x, y, z;
-	}values;
+typedef struct{
+	int16_t rawx, rawy, rawz;
+	float x, y, z;
+}values;
 
-	typedef struct{
-		int16_t rawroll, rawpitch, rawyaw;
-		float roll, pitch, yaw;
-	}angles;
+typedef struct{
+	int16_t rawroll, rawpitch, rawyaw;
+	float roll, pitch, yaw;
+}angles;
 
-	typedef struct{
-		int16_t raww, rawx, rawy, rawz;
-		float w, x, y, z;
-	}quaternion;
+typedef struct{
+	int16_t raww, rawx, rawy, rawz;
+	float w, x, y, z;
+}quaternion;
 
-	typedef struct{
-		char id;
-		char accel;
-		char gyro;
-		char mag;
-		char bootload;
-		char serial[16];
-	}chip;
+typedef struct{
+	char id;
+	char accel;
+	char gyro;
+	char mag;
+	char bootload;
+	char serial[16];
+}chip;
 
-	typedef struct{
-		TIM_HandleTypeDef* htim;
-		I2C_HandleTypeDef* hi2c;
-	}BNO_InitTypedef;
+typedef struct{
+	I2C_HandleTypeDef* hi2c;
+}BNO_InitTypedef;
 
-	typedef struct{
-		BNO_InitTypedef Init;
-		values accel,gyro,mag,lia,gravity;
-		angles euler;
-		quaternion quat;
-		char rx,tx[2],address;  //I2C variables
-		char rawdata[22]; //Temporary array for input data values
-		char op_mode;
-		char pwr_mode;
-		float accel_scale,rate_scale,angle_scale;
-		int temp_scale;
-	}BNO_HandleTypedef;
+typedef struct{
+	BNO_InitTypedef Init;
+	values accel,gyro,mag,lia,gravity;
+	angles euler;
+	quaternion quat;
+	char rx,tx[2],address;  //I2C variables
+	char rawdata[22]; //Temporary array for input data values
+	char op_mode;
+	char pwr_mode;
+	float accel_scale,rate_scale,angle_scale;
+	int temp_scale;
+}BNO_HandleTypedef;
 
-	void bnoInit(BNO_HandleTypedef *);
-	void setmode(BNO_HandleTypedef *, char);
-	void get_angles(BNO_HandleTypedef *);
+void bnoInit(BNO_HandleTypedef *);
+void setmode(BNO_HandleTypedef *, char);
+void get_angles(BNO_HandleTypedef *);
 #ifdef __cplusplus
 }
+#endif
 #endif
